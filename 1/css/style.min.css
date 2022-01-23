@@ -1491,7 +1491,7 @@ img {
   }
 }
 .form__field--game {
-  transition: 0.5s ease-out;
+  transition: width 0.5s ease-out;
   width: 0;
 }
 
@@ -1847,6 +1847,7 @@ img {
   line-height: 1.27;
   opacity: 0;
   transition: 0.4s ease-in;
+  transition-property: transform, opacity;
   transform: translateY(15px);
 }
 @media (min-width: 2000px) {
@@ -2209,12 +2210,15 @@ img {
   content: "";
   position: absolute;
   bottom: 0;
-  width: 0;
+  display: block;
+  width: 100%;
   height: 2px;
   background-color: #ffffff;
   left: 0;
-  transition-property: width, color;
+  transition-property: transform, background-color;
   transition-duration: 0.3s;
+  transform: scaleX(0);
+  transform-origin: left;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .page-header__menu a::after {
@@ -2231,8 +2235,7 @@ img {
   }
 }
 .page-header__menu a.active::after {
-  display: block;
-  width: 100%;
+  transform: scaleX(1);
 }
 .page-header__menu a:hover, .page-header__menu a:focus {
   color: #a67ee5;
@@ -2240,10 +2243,9 @@ img {
   transition: color 0.3s;
 }
 .page-header__menu a:hover::after, .page-header__menu a:focus::after {
-  width: 100%;
+  transform: scaleX(1);
   opacity: 1;
   background-color: #a67ee5;
-  right: 0;
 }
 
 .page-header__social {
@@ -3684,6 +3686,7 @@ img {
   font-size: 1.8rem;
   line-height: 2rem;
   transition: 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  transition-property: transform, opacity;
   transition-delay: 0.4s;
   transform: translateX(20px);
   opacity: 0;
@@ -3916,7 +3919,7 @@ img {
   height: 4rem;
   color: #5f458c;
   border-radius: 50%;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 .social-block__toggler:focus {
   outline: none;
@@ -3943,7 +3946,8 @@ img {
   background-color: #ffffff;
   border: 2px solid #ffffff;
   z-index: -1;
-  transition: 0.3s;
+  transition-duration: 0.3s;
+  transition-property: width, height;
 }
 .social-block__toggler svg {
   position: absolute;
